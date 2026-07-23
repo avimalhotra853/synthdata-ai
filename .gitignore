@@ -1,0 +1,27 @@
+# Environment & Secret Keys (DO NOT PUSH)
+.env
+.env.local
+.env.production
+*.env
+
+# Node / Next.js (Frontend)
+node_modules/
+.next/
+out/
+build/
+
+# Python (Backend)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+venv/
+.venv/
+env/
+
+# OS & Editor Files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
