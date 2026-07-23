@@ -64,11 +64,11 @@ def create_composite(
     pos_x = random.randint(0, max_x) if max_x > 0 else 0
     pos_y = random.randint(0, max_y) if max_y > 0 else 0
 
-    # 4. Paste foreground onto background copy using alpha channel transparency
+    # 4. Paste foreground onto background copy
     composite = bg_img.copy()
     composite.paste(rotated_fg, (pos_x, pos_y), rotated_fg)
 
-    # 5. Extract tighter bounding box based on alpha threshold
+    # 5. Extract tighter bounding box based on threshold
     box_x, box_y, box_w, box_h = pos_x, pos_y, fg_w, fg_h
     alpha = rotated_fg.getchannel('A') if 'A' in rotated_fg.getbands() else None
     if alpha:
