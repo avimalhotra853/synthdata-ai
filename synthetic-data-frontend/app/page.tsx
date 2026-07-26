@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 
+const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'https://synthdata-ai-backend.onrender.com';
+
 export default function Home() {
   const [foreground, setForeground] = useState<File | null>(null);
   const [background, setBackground] = useState<File | null>(null);
@@ -49,7 +51,7 @@ export default function Home() {
       formData.append('max_scale', maxScale.toString());
       formData.append('max_rotation', maxRotation.toString());
 
-      const res = await fetch('http://127.0.0.1:8001/api/preview', { method: 'POST', body: formData });
+      const res = await fetch(`${BACKEND_URL}/api/preview`, { method: 'POST', body: formData });
       if (!res.ok) throw new Error('Preview failed');
 
       const x = parseFloat(res.headers.get('X-BBox-X') || '0');
@@ -64,6 +66,7 @@ export default function Home() {
       setPreviewUrl(URL.createObjectURL(blob));
     } catch (e) {
       console.error(e);
+      alert('Error rendering preview. Note: Render free instances may take up to 50 seconds to wake up.');
     } finally {
       setPreviewLoading(false);
     }
@@ -89,7 +92,7 @@ export default function Home() {
       formData.append('foreground', foreground);
       formData.append('background', background);
 
-      const res = await fetch('http://127.0.0.1:8001/api/generate', { method: 'POST', body: formData });
+      const res = await fetch(`${BACKEND_URL}/api/generate`, { method: 'POST', body: formData });
       if (!res.ok) throw new Error('Generation failed');
 
       const blob = await res.blob();
@@ -101,7 +104,7 @@ export default function Home() {
       a.click();
       a.remove();
     } catch (err) {
-      alert('Error generating dataset. Ensure FastAPI backend is running on port 8001.');
+      alert('Error generating dataset. Ensure your Render backend is active and accessible.');
     } finally {
       setLoading(false);
     }
