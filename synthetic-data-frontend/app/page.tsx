@@ -148,11 +148,11 @@ export default function Home() {
       <nav className="border-b border-slate-800/80 bg-[#0d121f]/80 backdrop-blur-md sticky top-0 z-50 py-1">
         <div className="max-w-7xl mx-auto px-8 h-20 flex items-center justify-between">
           <div className="font-bold text-slate-100 font-mono text-xl tracking-tight flex items-center space-x-3">
-            <div className="bg-white p-0.5 rounded-xl flex items-center justify-center shadow-md border border-slate-200 overflow-hidden w-11 h-11">
+            <div className="bg-white p-2.5 rounded-xl flex items-center justify-center shadow-md border border-slate-200 overflow-hidden w-11 h-11">
               <img 
                 src="/logo_cropped.png" 
                 alt="SynthData AI Icon" 
-                className="w-full h-full object-contain scale-110" 
+                className="w-full h-full object-contain" 
               />
             </div>
             <span className="text-slate-100 font-semibold font-mono text-lg tracking-tight">
