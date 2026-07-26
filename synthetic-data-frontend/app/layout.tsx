@@ -16,7 +16,13 @@ export const metadata = {
   title: 'Synthdata AI',
   description: 'Synthetic Data Platform',
   icons: {
-    icon: '/logo_cropped.png',
+    icon: [
+      { url: '/logo_cropped.png', sizes: '32x32', type: 'image/png' },
+      { url: '/logo_cropped.png', sizes: '192x192', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/logo_cropped.png', sizes: '180x180', type: 'image/png' },
+    ],
   },
 };
 
